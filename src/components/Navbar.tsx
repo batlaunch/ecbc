@@ -39,7 +39,7 @@ const NavDropdown = ({ label, items }: DropdownProps) => {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        className="flex items-center gap-1 text-sm font-medium text-strip-bg hover:text-foreground transition-colors"
       >
         {label}
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
@@ -86,13 +86,13 @@ const Navbar = () => {
           <NavDropdown label="Resources" items={resourceItems} />
           <Link
             to="/#about"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-medium text-strip-bg hover:text-foreground transition-colors"
           >
             About
           </Link>
           <Link
             to="/#contact"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-medium text-strip-bg hover:text-foreground transition-colors"
           >
             Contact
           </Link>
@@ -100,7 +100,7 @@ const Navbar = () => {
 
         {/* Desktop right side */}
         <div className="hidden md:flex items-center gap-4">
-          <a href="tel:+6194014000" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="tel:+6194014000" className="flex items-center gap-2 text-sm text-strip-bg hover:text-foreground transition-colors">
             <Phone className="h-4 w-4" />
             <span>+1 (619) 401-4000</span>
           </a>

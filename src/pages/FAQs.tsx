@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import SubpageHero from "@/components/SubpageHero";
 import ServiceStrip from "@/components/ServiceStrip";
 import Footer from "@/components/Footer";
 import { ChevronDown } from "lucide-react";

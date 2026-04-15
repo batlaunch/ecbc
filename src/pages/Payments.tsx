@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import SubpageHero from "@/components/SubpageHero";
 import ServiceStrip from "@/components/ServiceStrip";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ const Payments = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <ServiceStrip />
+      <SubpageHero />
 
       <section className="bg-background py-16 lg:py-24">
         <div className="container mx-auto px-4">

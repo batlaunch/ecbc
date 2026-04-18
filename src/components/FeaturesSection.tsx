@@ -40,7 +40,7 @@ const FeaturesSection = () => {
               <h3 className="text-lg font-display font-semibold text-dark-surface-foreground">
                 {feature.title}
               </h3>
-              <p className="text-dark-muted text-sm leading-relaxed">
+              <p className="text-dark-surface-foreground/80 text-sm leading-relaxed">
                 {feature.description}
               </p>
             </div>

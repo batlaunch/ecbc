@@ -1,9 +1,57 @@
-import { Facebook, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    toast({
+      title: "Thanks for subscribing!",
+      description: "We'll keep you posted on news and offers from East County Biz Center.",
+    });
+    setEmail("");
+  };
+
   return (
-    <footer className="bg-dark-surface text-dark-surface-foreground/60 py-16">
-      <div className="container mx-auto px-4">
+    <footer className="bg-dark-surface text-dark-surface-foreground/60">
+      {/* Newsletter top */}
+      <div className="border-b border-dark-surface-foreground/10">
+        <div className="container mx-auto px-4 py-14">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="space-y-2">
+              <h3 className="text-2xl sm:text-3xl font-display font-bold text-dark-surface-foreground leading-tight">
+                Stay in the loop
+              </h3>
+              <p className="text-dark-surface-foreground/70 text-base">
+                Get occasional updates on new office space, events, and resources for San Diego entrepreneurs.
+              </p>
+            </div>
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 lg:justify-end">
+              <Input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                className="bg-dark-surface-foreground/10 border-dark-surface-foreground/20 text-dark-surface-foreground placeholder:text-dark-surface-foreground/50 h-12 sm:max-w-xs"
+                aria-label="Email address"
+              />
+              <Button type="submit" variant="cta" size="lg">
+                Subscribe <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer */}
+      <div className="container mx-auto px-4 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
@@ -22,12 +70,12 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-dark-surface-foreground text-sm uppercase tracking-wider">Quick Links</h4>
+            <h4 className="font-semibold text-dark-surface-foreground text-sm uppercase tracking-wider">Site Map</h4>
             <div className="space-y-2 text-sm">
-              <a href="#" className="block hover:text-dark-surface-foreground transition-colors">Home</a>
-              <a href="#services" className="block hover:text-dark-surface-foreground transition-colors">Services</a>
-              <a href="#about" className="block hover:text-dark-surface-foreground transition-colors">About</a>
-              <a href="#contact" className="block hover:text-dark-surface-foreground transition-colors">Contact</a>
+              <Link to="/" className="block hover:text-dark-surface-foreground transition-colors">Home</Link>
+              <Link to="/services/business-address" className="block hover:text-dark-surface-foreground transition-colors">Business Address</Link>
+              <Link to="/services/full-time-offices" className="block hover:text-dark-surface-foreground transition-colors">Full-Time Offices</Link>
+              <Link to="/services/conference-rooms" className="block hover:text-dark-surface-foreground transition-colors">Conference Rooms</Link>
             </div>
           </div>
 
@@ -38,6 +86,7 @@ const Footer = () => {
               <a href="https://scheduler.eastcountybiz.com/Web/" className="block hover:text-dark-surface-foreground transition-colors">Scheduler</a>
               <a href="https://directory.eastcountybiz.com/" className="block hover:text-dark-surface-foreground transition-colors">Directory</a>
               <a href="https://eastcountybiz.com/my-account/" className="block hover:text-dark-surface-foreground transition-colors">My Account</a>
+              <Link to="/resources/faqs" className="block hover:text-dark-surface-foreground transition-colors">FAQs</Link>
             </div>
           </div>
 

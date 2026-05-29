@@ -1,10 +1,18 @@
 import { MapPin, Clock, Building2, Mail, Calendar, BookOpen } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const services = [
-  { icon: MapPin, label: "Business Address" },
-  { icon: Clock, label: "Part-Time Offices" },
-  { icon: Building2, label: "Full-Time Offices" },
-  { icon: Mail, label: "Mail Handling" },
+type Service = {
+  icon: typeof MapPin;
+  label: string;
+  to?: string;
+  href?: string;
+};
+
+const services: Service[] = [
+  { icon: MapPin, label: "Business Address", to: "/services/business-address" },
+  { icon: Clock, label: "Conference Room", to: "/services/conference-rooms" },
+  { icon: Building2, label: "Full-Time Offices", to: "/services/full-time-offices" },
+  { icon: Mail, label: "Mail Handling", to: "/services/business-address" },
   { icon: Calendar, label: "Scheduler", href: "https://scheduler.eastcountybiz.com/Web/" },
   { icon: BookOpen, label: "Directory", href: "https://directory.eastcountybiz.com/" },
 ];
@@ -22,14 +30,17 @@ const ServiceStrip = () => {
               </div>
             );
 
-            return service.href ? (
-              <a key={service.label} href={service.href} target="_blank" rel="noopener noreferrer">
+            if (service.href) {
+              return (
+                <a key={service.label} href={service.href} target="_blank" rel="noopener noreferrer">
+                  {content}
+                </a>
+              );
+            }
+            return (
+              <Link key={service.label} to={service.to!}>
                 {content}
-              </a>
-            ) : (
-              <a key={service.label} href="#services">
-                {content}
-              </a>
+              </Link>
             );
           })}
         </div>

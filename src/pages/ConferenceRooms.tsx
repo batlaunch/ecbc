@@ -38,7 +38,7 @@ const ConferenceRooms = () => {
                 Conference Rooms
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Different meeting rooms to meet your needs. Each meeting room includes telephone service and internet. Our conference rooms offer a variety of seating and room spaces — from quick stand-ups to full-day trainings.
+                Our large conference room is fully equipped for any presentation or meeting. Telephone service and high-speed internet are included with every reservation.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Button variant="cta" size="lg" asChild>

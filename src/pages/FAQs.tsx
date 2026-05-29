@@ -3,7 +3,10 @@ import Navbar from "@/components/Navbar";
 import SubpageHero from "@/components/SubpageHero";
 import ServiceStrip from "@/components/ServiceStrip";
 import Footer from "@/components/Footer";
-import { ChevronDown } from "lucide-react";
+import CtaBanner from "@/components/CtaBanner";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import businessAddress from "@/assets/business-address.jpg";
 
 const faqs = [
   {
@@ -37,7 +40,7 @@ const faqs = [
 ];
 
 const FAQs = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-background">
@@ -45,22 +48,60 @@ const FAQs = () => {
       <ServiceStrip />
       <SubpageHero />
 
-      <section className="bg-background py-16 lg:py-24">
+      {/* Intro: side-by-side text + image */}
+      <section className="bg-background py-20 lg:py-28">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center space-y-4 mb-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="space-y-6">
               <span className="text-xs font-semibold tracking-wider uppercase text-secondary">Resources</span>
               <h1 className="text-4xl sm:text-5xl font-display font-bold text-foreground leading-tight">
                 Frequently Asked Questions
               </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Answers to the questions we hear most often — from setup and phone numbers to scheduling, suite numbers, and everything in between.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Button variant="cta" size="lg" asChild>
+                  <a href="mailto:info@eastcountybiz.com">
+                    Email Us <ArrowRight className="h-4 w-4 ml-1" />
+                  </a>
+                </Button>
+                <Button variant="ctaOutline" size="lg" asChild>
+                  <a href="tel:+6194014000"><Phone className="h-4 w-4" /> (619) 401-4000</a>
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <img
+                src={businessAddress}
+                alt="East County Biz Center building entrance"
+                className="w-full h-[420px] object-cover rounded-2xl shadow-xl"
+                width={1200}
+                height={840}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ accordion */}
+      <section className="bg-muted py-20 lg:py-28 border-y border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center space-y-4 mb-12">
+              <span className="text-xs font-semibold tracking-wider uppercase text-secondary">Common Questions</span>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground leading-tight">
+                Everything You Need to Know
+              </h2>
             </div>
 
-            <div className="divide-y divide-border">
+            <div className="divide-y divide-border bg-background rounded-2xl shadow-sm px-6 sm:px-8">
               {faqs.map((faq, index) => (
                 <div key={index}>
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full flex items-center justify-between py-6 text-left group"
+                    aria-expanded={openIndex === index}
                   >
                     <span className="text-base font-medium text-foreground pr-8 group-hover:text-primary transition-colors">
                       {faq.question}
@@ -80,16 +121,29 @@ const FAQs = () => {
               ))}
             </div>
 
-            <div className="text-center pt-12">
-              <p className="text-muted-foreground">More questions? Email us, call or stop by!</p>
-              <p className="text-muted-foreground text-sm mt-2">
-                <a href="mailto:info@eastcountybiz.com" className="text-primary hover:underline">info@eastcountybiz.com</a> · <a href="tel:+6194014000" className="text-primary hover:underline">(619) 401-4000</a>
-              </p>
+            {/* Contact callout */}
+            <div className="grid sm:grid-cols-3 gap-4 mt-12">
+              <a href="tel:+6194014000" className="bg-background rounded-xl p-6 text-center space-y-2 hover:shadow-md transition-shadow">
+                <Phone className="h-5 w-5 text-secondary mx-auto" />
+                <p className="text-sm font-semibold text-foreground">Call</p>
+                <p className="text-xs text-muted-foreground">(619) 401-4000</p>
+              </a>
+              <a href="mailto:info@eastcountybiz.com" className="bg-background rounded-xl p-6 text-center space-y-2 hover:shadow-md transition-shadow">
+                <Mail className="h-5 w-5 text-secondary mx-auto" />
+                <p className="text-sm font-semibold text-foreground">Email</p>
+                <p className="text-xs text-muted-foreground">info@eastcountybiz.com</p>
+              </a>
+              <div className="bg-background rounded-xl p-6 text-center space-y-2">
+                <MapPin className="h-5 w-5 text-secondary mx-auto" />
+                <p className="text-sm font-semibold text-foreground">Visit</p>
+                <p className="text-xs text-muted-foreground">East County, San Diego</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <CtaBanner />
       <Footer />
     </div>
   );

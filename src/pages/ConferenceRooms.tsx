@@ -13,8 +13,6 @@ const largePricing = [
   { duration: "Half Day", price: "$100.00", features: ["Full 4-hour half day", "Seats 8 around table", "Additional room seating", "Overhead projector available", "Large monitor available"] },
   { duration: "Full Day", price: "$150.00/day", features: ["Full 8-hour day", "Seats 8 around table", "Additional room seating", "Overhead projector available", "Large monitor available"] },
 ];
-
-
 const values = [
   { icon: Monitor, title: "Fully Equipped", body: "Overhead projectors, large monitors, and audio systems ready for any presentation." },
   { icon: Wifi, title: "Wired & Wireless", body: "Reliable high-speed internet and telephone service included with every reservation." },
@@ -108,7 +106,6 @@ const ConferenceRooms = () => {
           </div>
         </div>
       </section>
-
 
       <CtaBanner />
       <Footer />

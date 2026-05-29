@@ -12,7 +12,7 @@ const testimonials = [
     title: "Independent Attorney",
   },
   {
-    quote: "The conference rooms are spotless and easy to book. Whenever I need to host a client meeting in San Diego, this is my first call. Highly recommended.",
+    quote: "The conference room is spotless and easy to book. Whenever I need to host a client meeting in San Diego, this is my first call. Highly recommended.",
     name: "Priya S.",
     title: "Real Estate Broker",
   },

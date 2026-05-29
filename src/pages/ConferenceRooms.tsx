@@ -14,12 +14,6 @@ const largePricing = [
   { duration: "Full Day", price: "$150.00/day", features: ["Full 8-hour day", "Seats 8 around table", "Additional room seating", "Overhead projector available", "Large monitor available"] },
 ];
 
-const smallPricing = [
-  { duration: "1 Hour", price: "$20.00/hour" },
-  { duration: "2 Hours", price: "$40.00" },
-  { duration: "Half Day", price: "$50.00" },
-  { duration: "Full Day", price: "$75.00/day" },
-];
 
 const values = [
   { icon: Monitor, title: "Fully Equipped", body: "Overhead projectors, large monitors, and audio systems ready for any presentation." },

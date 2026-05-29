@@ -22,8 +22,8 @@ const services = [
   },
   {
     image: conferenceRoom,
-    title: "Conference Rooms",
-    description: "Bookable meeting and conference rooms for client presentations, team meetings, and seminars.",
+    title: "Conference Room",
+    description: "A professional meeting space for client presentations, team meetings, and seminars. Book by the hour or by the day.",
     primary: { label: "See Pricing", href: "/services/conference-rooms" },
     secondary: { label: "Reserve Now", href: "https://eastcountybiz.com/conference-rooms/#checkout", external: true },
   },

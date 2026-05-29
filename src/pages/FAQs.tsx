@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "What services does East County Biz Center offer?",
-    answer: "We offer professional business addresses, part-time and full-time office solutions, mail and package handling, conference rooms, and a suite of tailored services to meet your business identity and office needs.",
+    answer: "We offer professional business addresses, part-time and full-time office solutions, mail and package handling, a conference room, and a suite of tailored services to meet your business identity and office needs.",
   },
   {
     question: "How can I schedule a visit or book an office?",

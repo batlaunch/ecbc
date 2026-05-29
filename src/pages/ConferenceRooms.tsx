@@ -13,14 +13,6 @@ const largePricing = [
   { duration: "Half Day", price: "$100.00", features: ["Full 4-hour half day", "Seats 8 around table", "Additional room seating", "Overhead projector available", "Large monitor available"] },
   { duration: "Full Day", price: "$150.00/day", features: ["Full 8-hour day", "Seats 8 around table", "Additional room seating", "Overhead projector available", "Large monitor available"] },
 ];
-
-const smallPricing = [
-  { duration: "1 Hour", price: "$20.00/hour" },
-  { duration: "2 Hours", price: "$40.00" },
-  { duration: "Half Day", price: "$50.00" },
-  { duration: "Full Day", price: "$75.00/day" },
-];
-
 const values = [
   { icon: Monitor, title: "Fully Equipped", body: "Overhead projectors, large monitors, and audio systems ready for any presentation." },
   { icon: Wifi, title: "Wired & Wireless", body: "Reliable high-speed internet and telephone service included with every reservation." },
@@ -44,7 +36,7 @@ const ConferenceRooms = () => {
                 Conference Rooms
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Different meeting rooms to meet your needs. Each meeting room includes telephone service and internet. Our conference rooms offer a variety of seating and room spaces — from quick stand-ups to full-day trainings.
+                Our large conference room is fully equipped for any presentation or meeting. Telephone service and high-speed internet are included with every reservation.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Button variant="cta" size="lg" asChild>
@@ -110,38 +102,6 @@ const ConferenceRooms = () => {
                   </ul>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Small Conference Rooms */}
-      <section className="bg-background py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="space-y-4 max-w-3xl">
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Small Conference Rooms</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Smaller, more intimate meeting spaces perfect for one-on-one meetings, small team discussions, or private calls.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {smallPricing.map((plan) => (
-                <div key={plan.duration} className="bg-muted rounded-lg p-6 text-center space-y-3 border border-border">
-                  <p className="font-display font-bold text-foreground">{plan.duration}</p>
-                  <p className="text-2xl font-bold text-secondary">{plan.price}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button variant="cta" size="lg" asChild>
-                <a href="https://eastcountybiz.com/conference-rooms/#checkout">
-                  Reserve a Room <ArrowRight className="h-4 w-4 ml-1" />
-                </a>
-              </Button>
-              <Button variant="ctaOutline" size="lg" asChild>
-                <a href="tel:+6194014000">Talk to Our Team</a>
-              </Button>
             </div>
           </div>
         </div>

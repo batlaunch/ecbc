@@ -109,37 +109,6 @@ const ConferenceRooms = () => {
         </div>
       </section>
 
-      {/* Small Conference Rooms */}
-      <section className="bg-background py-20 lg:py-28">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="space-y-4 max-w-3xl">
-              <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground">Small Conference Rooms</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Smaller, more intimate meeting spaces perfect for one-on-one meetings, small team discussions, or private calls.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {smallPricing.map((plan) => (
-                <div key={plan.duration} className="bg-muted rounded-lg p-6 text-center space-y-3 border border-border">
-                  <p className="font-display font-bold text-foreground">{plan.duration}</p>
-                  <p className="text-2xl font-bold text-secondary">{plan.price}</p>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button variant="cta" size="lg" asChild>
-                <a href="https://eastcountybiz.com/conference-rooms/#checkout">
-                  Reserve a Room <ArrowRight className="h-4 w-4 ml-1" />
-                </a>
-              </Button>
-              <Button variant="ctaOutline" size="lg" asChild>
-                <a href="tel:+6194014000">Talk to Our Team</a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <CtaBanner />
       <Footer />

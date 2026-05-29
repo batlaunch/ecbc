@@ -26,6 +26,7 @@ interface DropdownProps {
 const NavDropdown = ({ label, items }: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -35,8 +36,25 @@ const NavDropdown = ({ label, items }: DropdownProps) => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  const handleEnter = () => {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setOpen(true);
+  };
+
+  const handleLeave = () => {
+    closeTimer.current = window.setTimeout(() => setOpen(false), 120);
+  };
+
   return (
-    <div ref={ref} className="relative">
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1 text-sm font-medium text-strip-bg hover:text-foreground transition-colors"
@@ -45,17 +63,19 @@ const NavDropdown = ({ label, items }: DropdownProps) => {
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-2 w-64 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
-          {items.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="absolute top-full left-0 pt-2 w-64 z-50">
+          <div className="bg-background border border-border rounded-lg shadow-lg py-2">
+            {items.map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

@@ -12,6 +12,13 @@ import ConferenceRooms from "./pages/ConferenceRooms.tsx";
 import Payments from "./pages/Payments.tsx";
 import SchedulerGuide from "./pages/SchedulerGuide.tsx";
 import FAQs from "./pages/FAQs.tsx";
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const queryClient = new QueryClient();
 

@@ -117,7 +117,7 @@ const BusinessAddress = () => {
       </section>
 
       {/* Features + Pricing */}
-      <section className="bg-background py-20 lg:py-28">
+      <section id="mail-handling" className="bg-background py-20 lg:py-28 scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
             <div className="space-y-6">
